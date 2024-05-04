@@ -1,21 +1,21 @@
 package org.mgobea.poointerfaces.imprenta.model;
 
 public class Informe extends Hoja{
-    private String autor;
-    private String revisor;
+    private Persona autor;
+    private Persona revisor;
 
-    public Informe(String contenido, String autor, String revisor) {
+    public Informe(String contenido, Persona autor, Persona revisor) {
         super(contenido);
         this.autor = autor;
         this.revisor = revisor;
     }
 
-    public String getAutor() {
-        return autor;
+    public Persona getAutor() {
+        return this.autor;
     }
 
-    public String getRevisor() {
-        return revisor;
+    public Persona getRevisor() {
+        return this.revisor;
     }
 
     @Override

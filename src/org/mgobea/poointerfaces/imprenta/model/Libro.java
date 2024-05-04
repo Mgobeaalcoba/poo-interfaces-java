@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Libro implements Imprimible{
     private List<Hoja> paginas;
-    private String autor;
+    private Persona autor;
     private String titulo;
     private Genero genero;
 
-    public Libro(String autor, String titulo, Genero genero) {
+    public Libro(Persona autor, String titulo, Genero genero) {
         this.autor = autor;
         this.titulo = titulo;
         this.genero = genero;
@@ -17,19 +17,19 @@ public class Libro implements Imprimible{
     }
 
     public List<Hoja> getPaginas() {
-        return paginas;
+        return this.paginas;
     }
 
-    public String getAutor() {
-        return autor;
+    public Persona getAutor() {
+        return this.autor;
     }
 
     public String getTitulo() {
-        return titulo;
+        return this.titulo;
     }
 
     public Genero getGenero() {
-        return genero;
+        return this.genero;
     }
 
     public Libro addPagina(Hoja pagina) {

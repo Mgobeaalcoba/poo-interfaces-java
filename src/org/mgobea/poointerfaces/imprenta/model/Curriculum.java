@@ -4,11 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Curriculum extends Hoja{
-    private String persona;
+    private Persona persona;
     private String carrera;
     private List<String> experiencia;
 
-    public String getPersona() {
+    public Curriculum(String contenido, Persona persona, String carrera) {
+        super(contenido);
+        this.persona = persona;
+        this.carrera = carrera;
+        this.experiencia = new ArrayList<>();
+    }
+
+    public Persona getPersona() {
         return persona;
     }
 
@@ -18,13 +25,6 @@ public class Curriculum extends Hoja{
 
     public List<String> getExperiencia() {
         return experiencia;
-    }
-
-    public Curriculum(String contenido, String persona, String carrera) {
-        super(contenido);
-        this.persona = persona;
-        this.carrera = carrera;
-        this.experiencia = new ArrayList<>();
     }
 
     public Curriculum addExperiencia(String experiencia) {
