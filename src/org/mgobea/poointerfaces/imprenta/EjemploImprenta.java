@@ -9,23 +9,21 @@ public class EjemploImprenta {
         curriculum.addExperiencia("Experiencia 1").addExperiencia("Experiencia 2").addExperiencia("Experiencia 3");
         Informe informe = new Informe("Contenido del informe", "Autor", "Revisor");
 
-        Hoja[] listaHoja = new Hoja[]{curriculum, informe};
-
-        // Imprimo el Curriculum y el Informe
-        for(Hoja hoja : listaHoja) {
-            imprimir(hoja);
-        }
-
         // Instancio un Libro
         Libro libro = new Libro("Mariano Gobea Alcoba", "Mi odisea", Genero.CIENCIA_FICCION);
         libro.addPagina(new Pagina("Esta es la pagina 1"))
                 .addPagina(new Pagina("Esta es la pagina 2"))
                 .addPagina(new Pagina("Esta es la pagina 1"));
-        // Imprimo el libro por acá porque no herada de Hoja. Para eso debo implementar una interface.
-        System.out.println(libro.imprimir());
+
+        Imprimible[] listaHoja = new Imprimible[]{curriculum, informe, libro};
+
+        // Imprimo el Curriculum y el Informe
+        for(Imprimible hoja : listaHoja) {
+            imprimir(hoja);
+        }
     }
 
-    public static void imprimir(Hoja imprimible) {
+    public static void imprimir(Imprimible imprimible) {
         // Como todas mis clases implementan la interfaz Imprimible, puedo llamar al método imprimir sin importar el tipo de objeto
         System.out.println(imprimible.imprimir());
     }
