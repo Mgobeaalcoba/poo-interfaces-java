@@ -1,5 +1,6 @@
 package org.mgobea.poointerfaces.imprenta.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Libro {
@@ -12,6 +13,7 @@ public class Libro {
         this.autor = autor;
         this.titulo = titulo;
         this.genero = genero;
+        this.paginas = new ArrayList<>();
     }
 
     public List<Hoja> getPaginas() {

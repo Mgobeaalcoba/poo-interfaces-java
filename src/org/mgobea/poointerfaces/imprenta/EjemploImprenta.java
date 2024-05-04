@@ -15,6 +15,14 @@ public class EjemploImprenta {
         for(Hoja hoja : listaHoja) {
             imprimir(hoja);
         }
+
+        // Instancio un Libro
+        Libro libro = new Libro("Mariano Gobea Alcoba", "Mi odisea", Genero.CIENCIA_FICCION);
+        libro.addPagina(new Pagina("Esta es la pagina 1"))
+                .addPagina(new Pagina("Esta es la pagina 2"))
+                .addPagina(new Pagina("Esta es la pagina 1"));
+        // Imprimo el libro por acá porque no herada de Hoja. Para eso debo implementar una interface.
+        System.out.println(libro.imprimir());
     }
 
     public static void imprimir(Hoja imprimible) {
