@@ -42,7 +42,7 @@ public class Libro implements Imprimible{
         StringBuilder sb = new StringBuilder("Titulo: ");
         sb.append(this.getTitulo())
                 .append("\nGenero: ").append(this.getGenero())
-                .append("\nAutor: ").append(this.getAutor());
+                .append("\nAutor: ").append(this.getAutor()).append("\n");
         for (Hoja pagina: this.getPaginas()) {
             sb.append(pagina.imprimir()).append("\n");
         }

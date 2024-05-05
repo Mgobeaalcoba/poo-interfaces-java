@@ -1,6 +1,8 @@
 package org.mgobea.poointerfaces.imprenta;
 
 import org.mgobea.poointerfaces.imprenta.model.*;
+import static org.mgobea.poointerfaces.imprenta.model.Genero.*; // Importo el enum Genero
+import static org.mgobea.poointerfaces.imprenta.model.Imprimible.*; // Importo el método estático imprimir de la interfaz Imprimible
 
 public class EjemploImprenta {
     public static void main(String[] args) {
@@ -16,21 +18,24 @@ public class EjemploImprenta {
         Informe informe = new Informe("Contenido del informe", persona2, persona);
 
         // Instancio un Libro
-        Libro libro = new Libro(persona4, "Mi odisea", Genero.CIENCIA_FICCION);
+        Libro libro = new Libro(persona4, "Mi odisea", CIENCIA_FICCION);
         libro.addPagina(new Pagina("Esta es la pagina 1"))
                 .addPagina(new Pagina("Esta es la pagina 2"))
                 .addPagina(new Pagina("Esta es la pagina 1"));
 
-        Imprimible[] listaHoja = new Imprimible[]{curriculum, informe, libro};
+        // Creo un Imprimible anónimo al vuelo:
+        Imprimible imprimibleAnonimo = new Imprimible() {
+            @Override
+            public String imprimir() {
+                return "Imprimiendo un imprimible anonimo";
+            }
+        };
+
+        Imprimible[] listaHoja = new Imprimible[]{curriculum, informe, libro, imprimibleAnonimo};
 
         // Imprimo el Curriculum y el Informe
         for(Imprimible hoja : listaHoja) {
-            imprimir(hoja);
+            imprimir(hoja); // Llamada al método estático imprimir de la interfaz Imprimible
         }
-    }
-
-    public static void imprimir(Imprimible imprimible) {
-        // Como todas mis clases implementan la interfaz Imprimible, puedo llamar al método imprimir sin importar el tipo de objeto
-        System.out.println(imprimible.imprimir());
     }
 }
